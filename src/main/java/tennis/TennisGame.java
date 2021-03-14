@@ -28,6 +28,9 @@ public class TennisGame {
         if (playerOne.getScore() == 0 && playerTwo.getScore() == 0)
             return "love";
 
+        if (playerTwo.getScore() >= 4)
+            return "Player Two set point";
+
         return "love, %s".formatted(formatScore(playerTwo));
     }
 
