@@ -26,4 +26,8 @@ public class TennisGame {
         }
 
     }
+
+    public String getScore() {
+        return "love";
+    }
 }

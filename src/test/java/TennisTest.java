@@ -45,4 +45,9 @@ public class TennisTest {
         tennisGame.scorePoint(playerOne);
         assertEquals(40, playerOne.getScore());
     }
+
+    @Test
+    public void gameStartsAtLove() {
+        assertEquals("love", tennisGame.getScore());
+    }
 }
