@@ -33,9 +33,16 @@ public class TennisGame {
         if (playerOne.getScore() == 0 && playerTwo.getScore() == 0)
             return "love";
 
-        if (playerOne.getScore() == 15 || playerTwo.getScore() == 15)
-            return "love, fifteen";
+        return "love, %s".formatted(formatScore(playerTwo));
+    }
 
-        return "love, thirty";
+    private String formatScore(Player player) {
+        switch (player.getScore()) {
+            case 0: return "love";
+            case 15: return "fifteen";
+            case 30: return "thirty";
+            default:
+                return "forty";
+        }
     }
 }
