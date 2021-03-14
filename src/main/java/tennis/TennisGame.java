@@ -5,13 +5,15 @@ import tennis.Player;
 public class TennisGame {
 
     private Player playerOne;
+    private Player playerTwo;
 
     public TennisGame() {
         playerOne = new Player();
+        playerTwo = new Player();
     }
 
     public Player getPlayerTwo() {
-        return new Player();
+        return playerTwo;
     }
 
     public Player getPlayerOne() {
@@ -28,6 +30,9 @@ public class TennisGame {
     }
 
     public String getScore() {
-        return "love";
+        if (playerOne.getScore() == 0 && playerTwo.getScore() == 0)
+            return "love";
+
+        return "love, fifteen";
     }
 }
