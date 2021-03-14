@@ -8,43 +8,41 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TennisTest {
 
     private TennisGame tennisGame;
+    private Player playerOne;
+    private Player playerTwo;
 
     @BeforeEach
     public void beforeEach() {
         tennisGame = new TennisGame();
+        playerOne = tennisGame.getPlayerOne();
+        playerTwo = tennisGame.getPlayerTwo();
 
     }
 
     @Test
     public void playerScoresStartAtZero() {
-        Player player1 = tennisGame.getPlayerOne();
-        assertEquals(0, player1.getScore());
-
-        Player player2 = tennisGame.getPlayerTwo();
-        assertEquals(0, player2.getScore());
+        assertEquals(0, playerOne.getScore());
+        assertEquals(0, playerTwo.getScore());
     }
 
     @Test
     public void playerOneScoresFirstPoint() {
-        Player player1 = tennisGame.getPlayerOne();
-        tennisGame.scorePoint(player1);
-        assertEquals(15, player1.getScore());
+        tennisGame.scorePoint(playerOne);
+        assertEquals(15, playerOne.getScore());
     }
 
     @Test
     public void playerOneScoresFirstTwoPoints() {
-        Player player1 = tennisGame.getPlayerOne();
-        tennisGame.scorePoint(player1);
-        tennisGame.scorePoint(player1);
-        assertEquals(30, player1.getScore());
+        tennisGame.scorePoint(playerOne);
+        tennisGame.scorePoint(playerOne);
+        assertEquals(30, playerOne.getScore());
     }
 
     @Test
     public void playerOneScoresFirstThreePoints() {
-        Player player1 = tennisGame.getPlayerOne();
-        tennisGame.scorePoint(player1);
-        tennisGame.scorePoint(player1);
-        tennisGame.scorePoint(player1);
-        assertEquals(40, player1.getScore());
+        tennisGame.scorePoint(playerOne);
+        tennisGame.scorePoint(playerOne);
+        tennisGame.scorePoint(playerOne);
+        assertEquals(40, playerOne.getScore());
     }
 }
