@@ -8,6 +8,6 @@ public class Player {
     }
 
     public void setScore(int i) {
-        score = i;
+        score += i;
     }
 }

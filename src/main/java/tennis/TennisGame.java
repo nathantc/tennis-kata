@@ -19,6 +19,7 @@ public class TennisGame {
     }
 
     public void scorePoint(Player player) {
+
         player.setScore(15);
     }
 }

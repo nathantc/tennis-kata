@@ -30,4 +30,12 @@ public class TennisTest {
         tennisGame.scorePoint(player1);
         assertEquals(15, player1.getScore());
     }
+
+    @Test
+    public void playerOneScoresFirstTwoPoints() {
+        Player player1 = tennisGame.getPlayerOne();
+        tennisGame.scorePoint(player1);
+        tennisGame.scorePoint(player1);
+        assertEquals(30, player1.getScore());
+    }
 }
