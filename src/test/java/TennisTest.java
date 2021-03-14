@@ -56,4 +56,11 @@ public class TennisTest {
         tennisGame.scorePoint(playerTwo);
         assertEquals("love, fifteen", tennisGame.getScore());
     }
+
+    @Test
+    public void scoreIsZeroToThirty() {
+        tennisGame.scorePoint(playerTwo);
+        tennisGame.scorePoint(playerTwo);
+        assertEquals("love, thirty", tennisGame.getScore());
+    }
 }

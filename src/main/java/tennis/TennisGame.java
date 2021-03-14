@@ -33,6 +33,9 @@ public class TennisGame {
         if (playerOne.getScore() == 0 && playerTwo.getScore() == 0)
             return "love";
 
-        return "love, fifteen";
+        if (playerOne.getScore() == 15 || playerTwo.getScore() == 15)
+            return "love, fifteen";
+
+        return "love, thirty";
     }
 }
