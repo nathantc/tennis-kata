@@ -52,4 +52,17 @@ public class TennisTest {
         tennisGame.scorePoint(playerTwo);
         assertEquals("Player Two set point", tennisGame.getScore());
     }
+
+    @Test
+    public void playersTiedAtDeuce() {
+        tennisGame.scorePoint(playerOne);
+        tennisGame.scorePoint(playerOne);
+        tennisGame.scorePoint(playerOne);
+
+        tennisGame.scorePoint(playerTwo);
+        tennisGame.scorePoint(playerTwo);
+        tennisGame.scorePoint(playerTwo);
+
+        assertEquals("deuce", tennisGame.getScore());
+    }
 }
