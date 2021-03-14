@@ -38,4 +38,13 @@ public class TennisTest {
         tennisGame.scorePoint(player1);
         assertEquals(30, player1.getScore());
     }
+
+    @Test
+    public void playerOneScoresFirstThreePoints() {
+        Player player1 = tennisGame.getPlayerOne();
+        tennisGame.scorePoint(player1);
+        tennisGame.scorePoint(player1);
+        tennisGame.scorePoint(player1);
+        assertEquals(40, player1.getScore());
+    }
 }

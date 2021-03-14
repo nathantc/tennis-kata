@@ -19,7 +19,11 @@ public class TennisGame {
     }
 
     public void scorePoint(Player player) {
+        if (player.getScore() == 30) {
+            player.setScore(40);
+        } else {
+            player.setScore(player.getScore() + 15);
+        }
 
-        player.setScore(15);
     }
 }
