@@ -65,4 +65,53 @@ public class TennisTest {
 
         assertEquals("deuce", tennisGame.getScore());
     }
+
+    @Test
+    public void playerOneHasAdvantage() {
+        tennisGame.scorePoint(playerOne);
+        tennisGame.scorePoint(playerOne);
+        tennisGame.scorePoint(playerOne);
+        tennisGame.scorePoint(playerOne);
+
+        tennisGame.scorePoint(playerTwo);
+        tennisGame.scorePoint(playerTwo);
+        tennisGame.scorePoint(playerTwo);
+
+        assertEquals("Player One advantage", tennisGame.getScore());
+    }
+
+    @Test
+    public void playerOneWinsSetByTwo() {
+        tennisGame.scorePoint(playerOne);
+        tennisGame.scorePoint(playerOne);
+        tennisGame.scorePoint(playerOne);
+        tennisGame.scorePoint(playerOne);
+        tennisGame.scorePoint(playerOne);
+
+        tennisGame.scorePoint(playerTwo);
+        tennisGame.scorePoint(playerTwo);
+        tennisGame.scorePoint(playerTwo);
+
+        assertEquals("Player One set point", tennisGame.getScore());
+    }
+
+    @Test
+    public void playersTiedAtFifteenAll() {
+        tennisGame.scorePoint(playerOne);
+
+        tennisGame.scorePoint(playerTwo);
+
+        assertEquals("fifteen all", tennisGame.getScore());
+    }
+
+    @Test
+    public void playersTiedAtThirtyAll() {
+        tennisGame.scorePoint(playerOne);
+        tennisGame.scorePoint(playerOne);
+
+        tennisGame.scorePoint(playerTwo);
+        tennisGame.scorePoint(playerTwo);
+
+        assertEquals("thirty all", tennisGame.getScore());
+    }
 }
