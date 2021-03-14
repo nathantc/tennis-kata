@@ -21,12 +21,7 @@ public class TennisGame {
     }
 
     public void scorePoint(Player player) {
-        if (player.getScore() == 30) {
-            player.setScore(40);
-        } else {
-            player.setScore(player.getScore() + 15);
-        }
-
+        player.setScore(player.getScore() + 1);
     }
 
     public String getScore() {
@@ -39,8 +34,8 @@ public class TennisGame {
     private String formatScore(Player player) {
         switch (player.getScore()) {
             case 0: return "love";
-            case 15: return "fifteen";
-            case 30: return "thirty";
+            case 1: return "fifteen";
+            case 2: return "thirty";
             default:
                 return "forty";
         }

@@ -16,34 +16,6 @@ public class TennisTest {
         tennisGame = new TennisGame();
         playerOne = tennisGame.getPlayerOne();
         playerTwo = tennisGame.getPlayerTwo();
-
-    }
-
-    @Test
-    public void playerScoresStartAtZero() {
-        assertEquals(0, playerOne.getScore());
-        assertEquals(0, playerTwo.getScore());
-    }
-
-    @Test
-    public void playerOneScoresFirstPoint() {
-        tennisGame.scorePoint(playerOne);
-        assertEquals(15, playerOne.getScore());
-    }
-
-    @Test
-    public void playerOneScoresFirstTwoPoints() {
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
-        assertEquals(30, playerOne.getScore());
-    }
-
-    @Test
-    public void playerOneScoresFirstThreePoints() {
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
-        assertEquals(40, playerOne.getScore());
     }
 
     @Test
@@ -70,5 +42,14 @@ public class TennisTest {
         tennisGame.scorePoint(playerTwo);
         tennisGame.scorePoint(playerTwo);
         assertEquals("love, forty", tennisGame.getScore());
+    }
+
+//    @Test
+    public void playerTwoWinsSet() {
+        tennisGame.scorePoint(playerTwo);
+        tennisGame.scorePoint(playerTwo);
+        tennisGame.scorePoint(playerTwo);
+        tennisGame.scorePoint(playerTwo);
+        assertEquals("Player Two set point", tennisGame.getScore());
     }
 }
