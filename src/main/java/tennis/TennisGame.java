@@ -25,8 +25,15 @@ public class TennisGame {
     }
 
     public String getScore() {
+
+        int playerOneScore= playerOne.getScore();
+        int playerTwoScore= playerTwo.getScore();
+
         if (playerOne.getScore() == 4 && playerTwo.getScore() == 3)
             return "Player One advantage";
+
+        if (playerTwo.getScore() == 4 && playerOne.getScore() == 3)
+            return "Player Two advantage";
 
         if (playerOne.getScore() == 0 && playerTwo.getScore() == 0)
             return "love";
@@ -40,7 +47,8 @@ public class TennisGame {
         if (playerOne.getScore() == 3 && playerTwo.getScore() == 3)
             return "deuce";
 
-        if (playerTwo.getScore() >= 4)
+        if (playerTwo.getScore() >= 4 && playerOne.getScore() <= 2 ||
+                (playerTwo.getScore() == 5 && playerOne.getScore() == 3))
             return "Player Two set point";
 
         if (playerOne.getScore() >= 4 && playerTwo.getScore() <= 2 ||
