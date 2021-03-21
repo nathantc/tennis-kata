@@ -18,6 +18,12 @@ public class TennisTest {
         playerTwo = tennisGame.getPlayerTwo();
     }
 
+    private void scorePoints(int num, Player player) {
+        for(int i = 0; i < num; i++){
+            tennisGame.scorePoint(player);
+        }
+    }
+
     @Test
     public void gameStartsAtLove() {
         assertEquals("love", tennisGame.getScore());
@@ -25,130 +31,91 @@ public class TennisTest {
 
     @Test
     public void scoreIsZeroToFifteen() {
-        tennisGame.scorePoint(playerTwo);
+        scorePoints(1, playerTwo);
+
         assertEquals("love, fifteen", tennisGame.getScore());
     }
 
     @Test
     public void scoreIsZeroToThirty() {
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
+        scorePoints(2, playerTwo);
+
         assertEquals("love, thirty", tennisGame.getScore());
     }
 
     @Test
     public void scoreIsZeroToForty() {
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
+        scorePoints(3, playerTwo);
+
         assertEquals("love, forty", tennisGame.getScore());
     }
 
     @Test
     public void playerTwoWinsSet() {
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
+        scorePoints(4, playerTwo);
+
         assertEquals("Player Two set point", tennisGame.getScore());
     }
 
     @Test
     public void playerTwoWinsSetByTwo() {
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
-
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
+        scorePoints(5, playerTwo);
+        scorePoints(3, playerOne);
 
         assertEquals("Player Two set point", tennisGame.getScore());
     }
 
     @Test
     public void playersTiedAtDeuce() {
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
-
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
+        scorePoints(3, playerOne);
+        scorePoints(3, playerTwo);
 
         assertEquals("deuce", tennisGame.getScore());
     }
 
     @Test
     public void playerOneHasAdvantage() {
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
-
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
+        scorePoints(4, playerOne);
+        scorePoints(3, playerTwo);
 
         assertEquals("Player One advantage", tennisGame.getScore());
     }
 
     @Test
     public void playerTwoHasAdvantage() {
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
-
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
+        scorePoints(4, playerTwo);
+        scorePoints(3, playerOne);
 
         assertEquals("Player Two advantage", tennisGame.getScore());
     }
 
     @Test
     public void playerOneWinsSetByTwo() {
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
-
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
+        scorePoints(5, playerOne);
+        scorePoints(3, playerTwo);
 
         assertEquals("Player One set point", tennisGame.getScore());
     }
 
     @Test
     public void playersTiedAtFifteenAll() {
-        tennisGame.scorePoint(playerOne);
-
-        tennisGame.scorePoint(playerTwo);
+        scorePoints(1, playerOne);
+        scorePoints(1, playerTwo);
 
         assertEquals("fifteen all", tennisGame.getScore());
     }
 
     @Test
     public void playersTiedAtThirtyAll() {
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
-
-        tennisGame.scorePoint(playerTwo);
-        tennisGame.scorePoint(playerTwo);
+        scorePoints(2, playerOne);
+        scorePoints(2, playerTwo);
 
         assertEquals("thirty all", tennisGame.getScore());
     }
     @Test
     public void playerOneWinsSet() {
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
-        tennisGame.scorePoint(playerOne);
+        scorePoints(4, playerOne);
+
         assertEquals("Player One set point", tennisGame.getScore());
     }
 
