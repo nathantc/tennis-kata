@@ -39,10 +39,10 @@ public class TennisGame {
             return "love";
 
         if (playerOne.getScore() == 1 && playerTwo.getScore() == 1)
-            return "fifteen all";
+            return formatScore(playerOne) + " all";
 
         if (playerOne.getScore() == 2 && playerTwo.getScore() == 2)
-            return "thirty all";
+            return formatScore(playerOne) + " all";
 
         if (playerOne.getScore() == 3 && playerTwo.getScore() == 3)
             return "deuce";
