@@ -29,38 +29,51 @@ public class TennisGame {
         int playerOneScore= playerOne.getScore();
         int playerTwoScore= playerTwo.getScore();
 
-        if (playerOne.getScore() == 4 && playerTwo.getScore() == 3)
-            return "Player One advantage";
+        if(playerOneScore == playerTwoScore) {
+            return getTieGameScore();
+        }
+        if(playerOneScore >= 4 || playerTwoScore >=4) {
+            return getAdvantageScore(playerOneScore, playerTwoScore);
+        }
+        return formatScore(playerOne) + ", " + formatScore(playerTwo);
+    }
 
-        if (playerTwo.getScore() == 4 && playerOne.getScore() == 3)
-            return "Player Two advantage";
-
-        if (playerOne.getScore() == 0 && playerTwo.getScore() == 0)
-            return "love";
-
-        if (playerOne.getScore() == 1 && playerTwo.getScore() == 1)
-            return formatScore(playerOne) + " all";
-
-        if (playerOne.getScore() == 2 && playerTwo.getScore() == 2)
-            return formatScore(playerOne) + " all";
-
-        if (playerOne.getScore() == 3 && playerTwo.getScore() == 3)
-            return "deuce";
-
-        if (playerTwo.getScore() >= 4 && playerOne.getScore() <= 2 ||
-                (playerTwo.getScore() == 5 && playerOne.getScore() == 3))
+    private String getAdvantageScore(int playerOneScore, int playerTwoScore) {
+        if (playerTwo.getScore() - playerOne.getScore() >= 2)
             return "Player Two set point";
 
-        if (playerOne.getScore() >= 4 && playerTwo.getScore() <= 2 ||
-                (playerOne.getScore() == 5 && playerTwo.getScore() == 3))
+        if (playerOne.getScore() - playerTwo.getScore() >= 2)
             return "Player One set point";
 
-        return "love, "+ formatScore(playerTwo);
+        if (playerOneScore - playerTwoScore == 1)
+            return "Player One advantage";
+        return "Player Two advantage";
+
+    }
+
+    private String getTieGameScore() {
+        if (playerOne.getScore() == 0 && playerTwo.getScore() == 0)
+            return "love";
+        if (playerOne.getScore() >= 3 && playerTwo.getScore() >= 3)
+            return "deuce";
+
+        if (playerOne.getScore() == playerTwo.getScore())
+            return formatScore(playerOne) + " all";
+        return null;
+    }
+
+    public String isAdvantage(int playerOneScore, int playerTwoScore) {
+
+        return null;
+    }
+
+    private String getAdvantageMessage(){
+        return "Player One advantage";
     }
 
     private String formatScore(Player player) {
         switch (player.getScore()) {
-            case 0: return "";
+            case 0: return "love";
             case 1: return "fifteen";
             case 2: return "thirty";
             default:

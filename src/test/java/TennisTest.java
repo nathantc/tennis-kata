@@ -119,7 +119,7 @@ public class TennisTest {
         assertEquals("Player One set point", tennisGame.getScore());
     }
 
-   /* @Test
+    @Test
     public void test() {
         tennisGame.scorePoint(playerOne);
         tennisGame.scorePoint(playerOne);
@@ -130,10 +130,17 @@ public class TennisTest {
         tennisGame.scorePoint(playerTwo);
 
         tennisGame.scorePoint(playerOne);
+        tennisGame.scorePoint(playerTwo);
 
 
+        assertEquals("deuce", tennisGame.getScore());
+    }
 
-        assertEquals("thirty all", tennisGame.getScore());
-    }*/
+    @Test
+    public void scoreIsZeroToFifteenForPlayerOne() {
+        scorePoints(1, playerOne);
+
+        assertEquals("fifteen, love", tennisGame.getScore());
+    }
 
 }
