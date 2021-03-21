@@ -114,4 +114,17 @@ public class TennisTest {
 
         assertEquals("thirty all", tennisGame.getScore());
     }
+
+    @Test
+    public void playerOneWinSetPoint() {
+        tennisGame.scorePoint(playerOne);
+        tennisGame.scorePoint(playerOne);
+        tennisGame.scorePoint(playerOne);
+
+        tennisGame.scorePoint(playerTwo);
+
+        tennisGame.scorePoint(playerOne);
+        assertEquals("Player One Wins set point", tennisGame.getScore());
+    }
+
 }
